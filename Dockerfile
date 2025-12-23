@@ -15,13 +15,12 @@ COPY provisioning/dashboards/*.yaml /etc/grafana/provisioning/dashboards/
 COPY dashboards/*.json /var/lib/grafana/dashboards/
 
 # Biến môi trường cho anonymous mode và embedding
-ENV GF_SECURITY_ALLOW_EMBEDDING=true \
-    GF_AUTH_ANONYMOUS_ENABLED=true \
-    GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer \
-    GF_SECURITY_COOKIE_SAMESITE=none \
-    GF_SECURITY_COOKIE_SECURE=true \
-    GF_SERVER_ENABLE_GZIP=true \
-    GF_AUTH_DISABLE_LOGIN_FORM=false
+ENV GF_SECURITY_ALLOW_EMBEDDING=true
+# ENV GF_AUTH_ANONYMOUS_ENABLED=true
+# ENV GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+ENV GF_SECURITY_COOKIE_SAMESITE=none
+ENV GF_SECURITY_COOKIE_SECURE=true
+ENV GF_SERVER_ENABLE_GZIP=true
 
 EXPOSE 3000
 
