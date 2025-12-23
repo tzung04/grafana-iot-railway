@@ -1,0 +1,17 @@
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    url: https://us-east-1-1.aws.cloud2.influxdata.com
+    isDefault: true
+    jsonData:
+      version: Flux
+      organization: nhom8
+      defaultBucket: iot-sensors
+      tlsSkipVerify: false
+    secureJsonData:
+      token: ${INFLUXDB_TOKEN}
+    editable: false
+    uid: bf7jw9rnkdce8b
