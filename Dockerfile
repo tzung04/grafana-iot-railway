@@ -14,11 +14,6 @@ COPY provisioning/dashboards/*.yaml /etc/grafana/provisioning/dashboards/
 # Copy dashboard JSON files
 COPY dashboards/*.json /var/lib/grafana/dashboards/
 
-# Đảm bảo quyền đúng
-RUN chown -R grafana:grafana /etc/grafana /var/lib/grafana
-
-USER grafana
-
 # Biến môi trường cho anonymous mode và embedding
 ENV GF_SECURITY_ALLOW_EMBEDDING=true \
     GF_AUTH_ANONYMOUS_ENABLED=true \
@@ -29,3 +24,6 @@ ENV GF_SECURITY_ALLOW_EMBEDDING=true \
     GF_AUTH_DISABLE_LOGIN_FORM=false
 
 EXPOSE 3000
+
+
+USER grafana
